@@ -1,0 +1,7 @@
+private/
+references/
+build/
+__pycache__/
+evidence/
+*.plasmoid
+*.pyc

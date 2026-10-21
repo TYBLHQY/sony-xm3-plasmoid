@@ -1,0 +1,14 @@
+{
+  "KPlugin": {
+    "Id": "io.github.tyblhqy.sonyxm3",
+    "Name": "Sony WH-1000XM3",
+    "Description": "Sony WH-1000XM3 noise control, equalizer and device settings for Plasma 6",
+    "Icon": "audio-headphones",
+    "Version": "0.1.1",
+    "License": "MIT",
+    "Authors": [{ "Name": "TYBLHQY" }],
+    "Category": "Multimedia"
+  },
+  "KPackageStructure": "Plasma/Applet",
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

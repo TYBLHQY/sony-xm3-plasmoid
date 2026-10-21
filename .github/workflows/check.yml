@@ -1,0 +1,26 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y gcc libbluetooth-dev
+      - name: Test protocol and settings validation
+        run: python3 -m unittest discover -s . -p 'test_*.py' -v
+      - name: Compile Python sources
+        run: python3 -m py_compile mdr.py controller.py sonyctl.py install.py
+      - name: Build widget without desktop installation
+        run: python3 install.py --build-only
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sony-xm3-plasmoid-linux-x86_64
+          path: '*.plasmoid'
